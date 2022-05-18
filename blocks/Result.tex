@@ -1,0 +1,68 @@
+\begin{exampleblock}{CoNLL-2009 Experiments}
+
+\begin{column}{0.85\colwidth}
+% \vspace{1cm}
+% Experiments on CoNLL-2009
+% \vspace{0.2cm}
+MM outperforms baseline methods in most cases
+% \vspace{1cm}
+\begin{itemize}
+    \item MM outperforms baselines over FastText, ELMo, and Bert embeddings (Figure. \ref{fig:perf-emb})
+    \item MM outperforms baselines over many languages (Figure. \ref{fig:perf-multilingual})
+    \begin{itemize}
+        \item MM outperforms Multitask and Transformer in German, Spanish, and Catalan
+        \item MM outperforms Transformer in Chinese
+        \item MM fails to learn in Czech
+    \end{itemize}
+\item MM improves in predicting short-distance semantic dependencies (Figure. \ref{fig:perf-by-ll})
+    \begin{itemize}
+        \item MM is the only syntax-aware method improving over Transformer on FastText and ELMo embeddings
+        \item MM retains the advantage in long-distance semantic dependencies of syntax-aware methods
+    \end{itemize}
+\end{itemize}
+
+\begin{table}[]
+\centering
+\small
+\begin{tabular}{l|c||l|c}
+\toprule
+Method & Syntax-aware & Method & Syntax-aware  \\
+\midrule
+Transformer   & No  &  Multitask       & Yes   \\
+LISA\cite{strubell-etal-2018-linguistically}     & Yes & PathLSTM\cite{roth-lapata-2016-neural}   & Yes  \\
+Pruning\cite{he-etal-2018-syntax} & Yes & MM & Yes \\
+\bottomrule
+\end{tabular}
+\caption{List of methods}
+\end{table}
+
+\end{column}
+\begin{column}{1.1\colwidth}
+\begin{figure}
+\vspace{-1cm}
+\captionsetup{justification=centering}
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/poster-perf-english-by-embeddings.png}
+    \caption{English LAS comparison on input embeddings.}
+    \label{fig:perf-emb}
+\end{figure}
+\begin{figure}
+\captionsetup{justification=centering}
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/poster-perf-multilingual.png}
+    \caption{LAS comparison on five languages using FastText.}
+    \label{fig:perf-multilingual}
+\end{figure}
+
+\end{column}
+
+\begin{figure}
+    \centering
+    \captionsetup{justification=centering}
+    \includegraphics[width=0.9\textwidth]{images/perf-by-ll.drawio.png}
+    \caption{Relative LAS comparison by the linear distance of semantic dependencies (English, FastText). }
+    \label{fig:perf-by-ll}
+\end{figure}
+
+
+\end{exampleblock}

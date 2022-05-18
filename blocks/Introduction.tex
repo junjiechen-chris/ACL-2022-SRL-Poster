@@ -1,0 +1,33 @@
+\begin{block}{Introduction}
+We study the syntactic-semantic dependency correlation through the mutual information gain of SSDP hop patterns.
+% \setlist{nolistsep}
+\begin{itemize}
+    % \item Syntactic dependencies: Head$\rightarrow$Dependent relations.
+    % \item Semantic dependencies: Predicate$\rightarrow$Argument relations. We denote the relation type as semantic labels.
+    \vspace{-0.8cm}
+    \item Semantic label: relation type (e.g., A0) of semantic dependencies
+    \item SSDP: Shortest Syntactic Dependency Path connecting predicate-argument pairs
+    \item Hop pattern: the transition pattern of SSDP
+\end{itemize}
+\begin{figure}
+    \centering
+    \captionsetup{justification=centering}
+    \includegraphics[width=0.7\textwidth]{images/syn-sem-dep-example.png}
+    \caption{Example semantic dependencies, SSDP of the semantic dependencies, and hop patterns. Solid lines underline predicates and dash lines underline arguments.}
+    \label{fig:syn-sem example}
+\end{figure}
+% Hop patterns distinguish the two semantic dependencies with the same predicate-argument pair.\\
+% \vspace{0.5cm}
+% \textbf{Hypothesis: Different hop patterns have unique distributions of semantic labels.}
+Intuitions:
+\begin{itemize}
+\vspace{-1cm}
+    \item Semantic dependencies are modeled as a distribution of the predicate and the argument \cite{dozat-manning-2018-simpler, strubell-etal-2018-linguistically, he-etal-2018-syntax}
+    \item Semantic parsers are vulnerable to semantic dependencies (Figure \ref{fig:syn-sem example}) that have different semantic labels but share the same predicate and argument
+    \item Hop patterns can distinguish between the two semantic dependencies
+\end{itemize}
+
+\textbf{Hypothesis: Different hop patterns have unique distributions of semantic labels}
+
+
+\end{block}

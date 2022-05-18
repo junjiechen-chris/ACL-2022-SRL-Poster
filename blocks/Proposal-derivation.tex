@@ -1,0 +1,22 @@
+% \vspace{}
+\begin{block}{Proposal Derivation}
+\begin{column}{1.99\colwidth}
+% We optimize the mixture model through the Evidence Lowerbound objective (ELBo) $\mathcal{L}_{sem}(\theta)$\\
+    % \vspace{0.8cm}
+Assumptions to derive the Evidence Lowerbound objective $\mathcal{L}_{sem}(\theta)$ from the log-likelihood of semantic labels:
+\begin{enumerate}
+\vspace{-0.3cm}
+    \item Predicate-argument pairs and hop patterns determine semantic labels
+    \item Cluster assignments are determined only by hop patterns
+\end{enumerate}
+    \end{column}
+    % \small
+    % \vspace{-1cm}
+    \begin{flalign}
+       && \log P_\theta(r|p, a)&= \log\sum_c P_\theta(r|c, p, a)P_\theta(c|p, a) &&\nonumber \\
+       &&                     &\geq \sum_c q_\phi(c|r, p, a)\log\frac{P_\theta(r|c, p, a)P_\theta(c|p, a)}{q_\phi(c|r, p, a)} && \text{ELBo inequality}\nonumber\\
+       &&                    &=\sum_c q_\phi(c|p, a)\log\frac{P_\theta(r|c, p, a)P_\theta(c|p, a)}{q_\phi(c|p, a)} && \text{Using assumption 1}\nonumber\\
+       &&                     &=\sum_c P_\theta(c|\mathrm{ssdp}(p, a))\log\frac{P_\theta(r|c, p, a)P_\theta(c|\mathrm{ssdp}(p, a))}{P_\theta(c|\mathrm{ssdp}(p, a))} && \text{Using assumption 2}\nonumber\\
+        &&                    &= \sum_c P_\theta(c|\mathrm{ssdp}(p, a)) \log P_\theta(r|c, p, a)= \mathcal{L}_{sem}(\theta|\mathcal{X}=(r, p, a)) &&\nonumber 
+    \end{flalign}
+\end{block}
