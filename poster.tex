@@ -35,6 +35,7 @@
 \usepackage{adjustbox}
 
 \usepackage{soul}
+\usepackage[normalem]{ulem}
 % ====================
 % Lengths
 % ====================
@@ -83,6 +84,7 @@
 \begin{document}
 
 \begin{frame}[t]
+\vspace{-.5\baselineskip}
 \begin{columns}[t]
 \separatorcolumn
 
@@ -96,10 +98,13 @@
 \separatorcolumn
 
 \begin{column}{2\colwidth}
+    \input{blocks/Motivation-simple}
+    \vspace{-.2\baselineskip}
     \input{blocks/Motivation}
     % \input{blocks/Proposal-derivation}
+    \vspace{-.2\baselineskip}
     \input{blocks/Result}
-    \input{blocks/Proposal-derivation}
+    % \input{blocks/Proposal-derivation}
     % \input{blocks/Reference}
 % \input{blocks/Proposal-derivation}
 \end{column}
